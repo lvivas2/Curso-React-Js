@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+.mail-header{
+  box-shadow: 4px 4px 4px 1px #F831FF  ;
+}
+
+.img-logo{
+  height: auto;
+  width: 100px;
+}
