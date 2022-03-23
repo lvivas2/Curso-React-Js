@@ -39,7 +39,9 @@
 
 
 .mail-header{
-  box-shadow: 4px 4px 4px 1px #F831FF  ;
+  box-shadow: 4px 4px 4px 1px #00ECDE  ;
+  word-wrap: break-word;
+  box-sizing: border-box;
 }
 
 .img-logo{
