@@ -23,16 +23,7 @@ function NavBar() {
                             <li class="nav-item Light">
                                 <a class="nav-link text-light" href="#">Contact</a>
                             </li>
-                        </ul>
-                        <select className="Select-Nav">
-                            <option value="Pantalon" selected>Products</option>
-                            <option value="Remeras">Remeras</option>
-                            <option value="Musculosas">Musculosas</option>
-                            <option value="Buzos">Buzos</option>
-                        </select>
-
-                        
-
+                        </ul>                    
 
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
