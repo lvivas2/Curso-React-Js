@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const ItemCount = ({ stock }) => {
+
     const [add, setAdd] = useState(1);
 
 
@@ -18,6 +19,9 @@ const ItemCount = ({ stock }) => {
         }
 
     }
+
+  alert ("Haz seleccionado" )
+
 
     return (
         <div className="container-count">

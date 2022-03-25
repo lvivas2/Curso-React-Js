@@ -11,8 +11,7 @@ const ItemListContainer = (props) => {
         waist: "S",
         stock: 14
     }
-
-    
+ 
 
     return (
         <div>
