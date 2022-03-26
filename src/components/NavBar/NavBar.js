@@ -14,6 +14,18 @@ function NavBar() {
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                         <a class="navbar-brand" href="#"><img className="img-logo" src="GYO-Vec.png" /></a>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            {/* Lista desplegable */}
+                            <div class="dropdown">
+                                <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Product
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">T-shirts</a></li>
+                                    <li><a class="dropdown-item" href="#">Trousers</a></li>
+                                    <li><a class="dropdown-item" href="#">Sweater</a></li>
+                                </ul>
+                            </div>
                             <li class="nav-item">
                                 <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
                             </li>
@@ -23,7 +35,7 @@ function NavBar() {
                             <li class="nav-item Light">
                                 <a class="nav-link text-light" href="#">Contact</a>
                             </li>
-                        </ul>                    
+                        </ul>
 
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

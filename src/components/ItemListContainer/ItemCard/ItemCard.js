@@ -5,6 +5,10 @@ const ItemCard = ({data}) => {
 
     const {titel, waist, stock} = data
 
+    const onAdd = ( add ) => {
+        console.log(`Cantidad de productos agregados: ${add} `)
+    }
+
     return (
 
 
@@ -16,7 +20,7 @@ const ItemCard = ({data}) => {
                 <p class="card-text"> Stock: {stock} </p>
             </div>
 
-            <ItemCount stock={stock}/>
+            <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
         </div>
     )
 
