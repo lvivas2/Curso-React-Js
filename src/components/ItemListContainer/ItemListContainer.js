@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ItemList from "./ItemList/ItemList";
-import ItemCard from "./ItemCard/ItemCard";
+
 
 
 
@@ -10,19 +10,29 @@ const ItemListContainer = (props) => {
      // LLamado de ejemplo al servidor 
      const mockProducts = [{
         id: 1,
-        titel: "Campera",
+        titel: " Black Sweater",
         waist: "M",
         price: 12500,
-        stock: 2
+        stock: 2,
+        image: "sweater.png"
     },
     {
         id: 2,
-        titel: "Musculosa",
-        waist: "S",
+        titel: "Wool Sweater",
+        waist: "M",
         price: 2300,
-        stock: 10
+        stock: 10,
+        image: "wool.png"
+    },
+    {
+        id: 3,
+        titel: "Dress",
+        waist: "S",
+        price: 5600,
+        stock: 13,
+        image: "dress.png"
     }]
-
+     
     // Captura de los productos
     const [ListProducts, setListProducts] = useState([])
     
@@ -37,30 +47,24 @@ const ItemListContainer = (props) => {
 
     // Llamado asincronico
     useEffect(() => {
-        getProducts().then((prod) => {
-            setListProducts(prod)
-        })
-    }, [])
+        getProducts()
+        .then((prod) => setListProducts(prod))
+        .catch((err) => console.error(err))
+
+    }, []) //React Hook useEffect has missing dependency: "getProducts". Either include it or remove the dependency Array.
 
     return (
         <>
         <div>
+            
+            <div className="item-img">
             <h1 className="Titel-GYO">
                 {titel}
             </h1>
-        <ItemList/>
+                <img src="PortadaDos.png" className="" alt="..."/>
+            </div>
         </div>
-
-         {/* {ListProducts.map((ListProduct) => {
-                const {id} = ListProduct
-                return (
-
-                    <ItemCard data={ListProduct} key={id} />
-                  
-                )
-            })} */}
-
-            <ItemList productos={ListProducts} />
+            <ItemList productos={ListProducts}/>
         </>
     )
 }

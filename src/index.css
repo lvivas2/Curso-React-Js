@@ -5,14 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Fjalla One', sans-serif;
-  font-family: 'Fredoka', sans-serif;
+
   
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
-  font-family: 'Fjalla One', sans-serif;
-  font-family: 'Fredoka', sans-serif;
+
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
 }

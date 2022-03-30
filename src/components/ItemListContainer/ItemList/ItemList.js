@@ -1,27 +1,23 @@
 import React from "react";
+import ItemCard from "../ItemCard/ItemCard";
 
 
-const ItemList = ({ productos }) => {
+const ItemList = ({ productos = [] }) => {
 
- const dato = productos
-
-console.log("ropa:", dato)
+    console.log(productos)
 
     return (
         <>
-            {/* {productos.map((producto) => {
-               {console.log("ropaMAP:", producto)}
-                    <div>
-                        <p>
-                           
-                        </p>
-                    </div>
-            })} */}
+            {productos.map((producto) => {
+                return(<ItemCard data={producto} key={producto.id}/>)
+                    
+                
+            })}
 
 
 
         </>
-        
+
     )
 }
 
