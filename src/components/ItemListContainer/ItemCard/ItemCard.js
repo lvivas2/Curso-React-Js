@@ -30,35 +30,7 @@ const ItemCard = ({ data }) => {
                         <h3>{titel}</h3>
                     </div>
                 </div>
-{/* 
-                <div className="card-item c2">
-                    <ItemCount stock={stock} initial={1} onAdd={onAdd} />
-                    <div className="info-description">
-                        <p> Precio: {price} </p>
-                        <p> Talle: {waist} </p>
-                        <p> Stock: {stock} </p>
-                        <input type={"button"} value="Leer Más"></input>
-                    </div>
-                    <div className="icon">
-                        <i class="bi bi-filetype-css"></i>
-                    </div>
-                </div> */}
-
-                {/* <div className="card-item c3">
-                    <ItemCount stock={stock} initial={1} onAdd={onAdd} />
-                    <div className="info-description">
-                        <p> Precio: {price} </p>
-                        <p> Talle: {waist} </p>
-                        <p> Stock: {stock} </p>
-                        <input type={"button"} value="Leer Más"></input>
-                    </div>
-                    <div className="icon">
-                        <i class="bi bi-filetype-jsx"></i>
-                    </div>
-                </div> */}
             </div>
-
-
         </div>
     )
 
