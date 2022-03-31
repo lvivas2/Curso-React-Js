@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList/ItemList";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 
 
@@ -7,12 +8,12 @@ import ItemList from "./ItemList/ItemList";
 const ItemListContainer = (props) => {
     const { titel } = props
 
-     // LLamado de ejemplo al servidor 
-     const mockProducts = [{
+    // LLamado de ejemplo al servidor 
+    const mockProducts = [{
         id: 1,
-        titel: " Black Sweater",
-        waist: "M",
-        price: 12500,
+        titel: "Sports Bra",
+        waist: "s",
+        price: 5400,
         stock: 2,
         image: "sweater.png"
     },
@@ -32,10 +33,10 @@ const ItemListContainer = (props) => {
         stock: 13,
         image: "dress.png"
     }]
-     
+
     // Captura de los productos
     const [ListProducts, setListProducts] = useState([])
-    
+
 
     const getProducts = () => {
         return new Promise((resolve, reject) => {
@@ -48,23 +49,27 @@ const ItemListContainer = (props) => {
     // Llamado asincronico
     useEffect(() => {
         getProducts()
-        .then((prod) => setListProducts(prod))
-        .catch((err) => console.error(err))
+            .then((prod) => setListProducts(prod))
+            .catch((err) => console.error(err))
 
     }, []) //React Hook useEffect has missing dependency: "getProducts". Either include it or remove the dependency Array.
 
     return (
         <>
-        <div>
-            
-            <div className="item-img">
-            <h1 className="Titel-GYO">
-                {titel}
-            </h1>
-                <img src="PortadaDos.png" className="" alt="..."/>
+            <div>
+
+                <div className="item-img">
+                    <h1 className="Titel-GYO">
+                        {titel}
+                    </h1>
+                    <img src="portadaDeportiva.png" className="" alt="..." />
+                </div>
             </div>
-        </div>
-            <ItemList productos={ListProducts}/>
+            <ItemList productos={ListProducts} />
+
+            <div>
+                <ItemDetailContainer />
+            </div>
         </>
     )
 }

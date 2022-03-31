@@ -6,8 +6,8 @@ const CartWidget = () => {
 
 
         <div className="cart-header">
-            <button type="button" class="btn btn-outline-light">0
-                <i class="bi bi-cart-check"></i>
+            <button type="button" className="btn btn-outline-light">0
+                <i className="bi bi-cart-check"></i>
             </button>
         </div>
     )
