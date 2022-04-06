@@ -21,7 +21,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <div className="container-count">
             <div>
                 <button onClick={removeProduct}><i className="bi bi-dash-square"></i></button>
-                <input defaultValue={add}/>
+                <input defaultValue={add} value={add}/>
                 <button onClick={addProduct}><i className="bi bi-plus-square"></i></button>
             </div>
             <button onClick={() => { onAdd(add) } } type="button" > Añadir al carrito</button>

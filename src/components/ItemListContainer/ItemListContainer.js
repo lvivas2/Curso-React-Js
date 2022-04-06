@@ -1,58 +1,55 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList/ItemList";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
+import mockProducts from "../../Mock/Mock";
+import { useParams } from "react-router-dom";
 
 
 
 
 const ItemListContainer = (props) => {
     const { titel } = props
+    
+    const {id} = useParams ()
+    console.log("useParams container: ", useParams())
+    const [categoryByid, setCategoryByid] = useState ({})
 
-    // LLamado de ejemplo al servidor 
-    const mockProducts = [{
-        id: 1,
-        titel: "Sports Bra",
-        waist: "s",
-        price: 5400,
-        stock: 2,
-        image: "sweater.png"
-    },
-    {
-        id: 2,
-        titel: "Wool Sweater",
-        waist: "M",
-        price: 2300,
-        stock: 10,
-        image: "wool.png"
-    },
-    {
-        id: 3,
-        titel: "Dress",
-        waist: "S",
-        price: 5600,
-        stock: 13,
-        image: "dress.png"
-    }]
+    useEffect ( () => {
+        filterCategory()
+    }, [])
 
-    // Captura de los productos
-    const [ListProducts, setListProducts] = useState([])
-
-
-    const getProducts = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                return resolve(mockProducts)
-            }, 2000)
+    const filterCategory =  () => {
+        return mockProducts.map ( (category) => {
+            if (category.categoryId == id) {
+                setTimeout( () => {
+                    return setCategoryByid(category)
+                }, 2000)
+            }
+            console.log("category:", category )
         })
     }
+    console.log("Categoria de productos: " , categoryByid)
+    
 
-    // Llamado asincronico
-    useEffect(() => {
-        getProducts()
-            .then((prod) => setListProducts(prod))
-            .catch((err) => console.error(err))
+    // // Captura de los productos
+    // const [ListProducts, setListProducts] = useState([])
 
-    }, []) //React Hook useEffect has missing dependency: "getProducts". Either include it or remove the dependency Array.
+
+    // const getProducts = () => {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             return resolve(mockProducts)
+    //         }, 2000)
+    //     })
+    // }
+
+    // // Llamado asincronico
+    // useEffect(() => {
+    //     getProducts()
+    //         .then((prod) => setListProducts(prod))
+    //         .catch((err) => console.error(err))
+
+    // }, []) //React Hook useEffect has missing dependency: "getProducts". Either include it or remove the dependency Array.
 
     return (
         <>
@@ -62,14 +59,16 @@ const ItemListContainer = (props) => {
                     <h1 className="Titel-GYO">
                         {titel}
                     </h1>
-                    <img src="portadaDeportiva.png" className="" alt="..." />
+                    <img src="/img/portadaDeportiva.png" className="" alt="..." />
                 </div>
             </div>
-            <ItemList productos={ListProducts} />
+            <div className="container-itemList">
 
-            <div>
-                <ItemDetailContainer />
+            <ItemList productos= {categoryByid } />
             </div>
+
+
+          
         </>
     )
 }

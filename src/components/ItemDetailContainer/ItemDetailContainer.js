@@ -1,41 +1,35 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
+import mockProducts from "../../Mock/Mock";
+import { useParams } from "react-router-dom";
 
-const ItemDetailContainer = () =>{
+const ItemDetailContainer = () => {
     
-  
+    const {id} = useParams()
+    console.log("useParams de detail", useParams() )
+    const [object,setObject] = useState ({})
 
-        const mockDetail = [{
-            id: 1,
-            titel: "Sports Bra",
-            waist: "s",
-            price: 5400,
-            stock: 2,
-            image: "top.png",
-            imageDos: "top1.png"
-        }]
-    
-        const [detailProducts, setdetailProducts] = useState([])
-    
-        const detProducts = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    return resolve(mockDetail)
+    useEffect( () => {
+        filterProductById()
+    }, [])
+
+    const filterProductById = () => {
+        return  mockProducts.map ( (product) => {
+            if(product.id == id){
+                setTimeout ( () => {
+                    return setObject(product)
                 }, 2000)
-            })
-        }
-    
-    
-        useEffect(() => {
-            detProducts()
-                .then((detail) => setdetailProducts(detail))
-                .catch((err) => console.error(err))
-    
-        }, [])
+            }
+            console.log("mock: ", product )
+        })
+    }
+
+    console.log("item detail: ", object)
+
     
     return (
         <>
-        <ItemDetail details= {detailProducts}/>
+        <ItemDetail details= {object}/>
         </>
     )
 }
