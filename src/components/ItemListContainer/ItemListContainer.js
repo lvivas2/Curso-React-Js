@@ -31,25 +31,7 @@ const ItemListContainer = (props) => {
     console.log("Categoria de productos: " , categoryByid)
     
 
-    // // Captura de los productos
-    // const [ListProducts, setListProducts] = useState([])
 
-
-    // const getProducts = () => {
-    //     return new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //             return resolve(mockProducts)
-    //         }, 2000)
-    //     })
-    // }
-
-    // // Llamado asincronico
-    // useEffect(() => {
-    //     getProducts()
-    //         .then((prod) => setListProducts(prod))
-    //         .catch((err) => console.error(err))
-
-    // }, []) //React Hook useEffect has missing dependency: "getProducts". Either include it or remove the dependency Array.
 
     return (
         <>
@@ -64,7 +46,7 @@ const ItemListContainer = (props) => {
             </div>
             <div className="container-itemList">
 
-            <ItemList productos= {categoryByid } />
+            <ItemList  category = {categoryByid } />
             </div>
 
 
