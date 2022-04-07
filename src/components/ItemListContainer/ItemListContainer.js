@@ -38,7 +38,7 @@ const ItemListContainer = (props) => {
     }, [id])
 
     const filterCategory =  (category, id) => {
-        return category.map ( (product, i) => {
+        return category.map ( (product) => {
             if (product.categoryId === id) {
                 return setListProducts( ListProducts => [...ListProducts, product])
                
