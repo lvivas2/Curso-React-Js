@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const ItemCard = ({ data }) => {
 
-    const { price, image, id } = data
+    const { price, image, id, categoryId } = data
+
   
 
     const onAdd = (add) => {
@@ -14,7 +15,7 @@ const ItemCard = ({ data }) => {
     return (
 
         <>
-            <div className="card-item-flex">
+            <div className="card-item-flex" >
                 
                 <div className="card-item-dos">
                     <div className="container__box">

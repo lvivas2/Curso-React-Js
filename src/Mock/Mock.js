@@ -1,7 +1,7 @@
 // LLamado de ejemplo al servidor 
 const mockProducts = [{
     id: 1,
-    categoryId: "women",
+    categoryId: "boy",
     titel: "Calzas Largas Techfit",
     waistS: "S",
     waistM: "M",
@@ -12,8 +12,8 @@ const mockProducts = [{
 },
 {
     id: 2,
-    categoryId: "women",
-    titel: "Wool Sweater",
+    categoryId: "boy",
+    titel: "Blue Shirt",
     waistS: "S",
     waistM: "M",
     waistXL: "XL",
@@ -23,7 +23,7 @@ const mockProducts = [{
 },
 {
     id: 3,
-    categoryId: "women",
+    categoryId: "boy",
     titel: "Dress",
     waistS: "S",
     waistM: "M",
@@ -34,6 +34,7 @@ const mockProducts = [{
 }
 ,{
     id: 4,
+    categoryId: "women",
     titel: "Set Sport Black",
     waistS: "S",
     waistM: "M",
@@ -44,6 +45,7 @@ const mockProducts = [{
 },
 {
     id: 5,
+    categoryId: "women",
     titel: "Set Sport Pink",
     waistS: "XS",
     waistM: "S",
@@ -54,6 +56,7 @@ const mockProducts = [{
 },
 {
     id: 6,
+    categoryId: "women",
     titel: "Set Sport White",
     waistS: "S",
     waistM: "L",
@@ -63,6 +66,7 @@ const mockProducts = [{
     image: "/img/calzaBlanca.png"
 },{
     id: 7,
+    categoryId: "men",
     titel: "Set Sport Black",
     waistS: "S",
     waistM: "M",
@@ -73,6 +77,7 @@ const mockProducts = [{
 },
 {
     id: 8,
+    categoryId: "men",
     titel: "Set Sport Pink",
     waistS: "XS",
     waistM: "S",
@@ -83,6 +88,7 @@ const mockProducts = [{
 },
 {
     id: 9,
+    categoryId: "men",
     titel: "Set Sport White",
     waistS: "S",
     waistM: "L",

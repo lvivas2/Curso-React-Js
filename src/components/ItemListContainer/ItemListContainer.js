@@ -8,35 +8,51 @@ import { useParams } from "react-router-dom";
 
 
 const ItemListContainer = (props) => {
-    const { titel } = props
     
-    const {id} = useParams ()
-    console.log("useParams container: ", useParams())
-    const [categoryByid, setCategoryByid] = useState ({})
+        const {id} = useParams ()
+    
+    const { titel } = props
 
-    useEffect ( () => {
-        filterCategory()
-    }, [])
+    // Captura de los productos
+    const [ListProducts, setListProducts] = useState([])
 
-    const filterCategory =  () => {
-        return mockProducts.map ( (category) => {
-            if (category.categoryId == id) {
-                setTimeout( () => {
-                    return setCategoryByid(category)
-                }, 2000)
-            }
-            console.log("category:", category )
+
+    const getProducts = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                return resolve(mockProducts)
+            }, 2000)
         })
     }
-    console.log("Categoria de productos: " , categoryByid)
-    
 
+    // Llamado asincronico
+    useEffect(() => {
+        setListProducts([])
+        getProducts()
+            .then((prod) => {
+                
+               id ? filterCategory (prod, id) : setListProducts(prod) 
+                }) 
+            
 
+    }, [id])
+
+    const filterCategory =  (category, id) => {
+        return category.map ( (product, i) => {
+            if (product.categoryId === id) {
+                return setListProducts( ListProducts => [...ListProducts, product])
+               
+            }
+                
+            
+            
+        })
+    }
+    console.log("Categoria de productos: " , ListProducts   )
 
     return (
         <>
             <div>
-
                 <div className="item-img">
                     <h1 className="Titel-GYO">
                         {titel}
@@ -46,7 +62,9 @@ const ItemListContainer = (props) => {
             </div>
             <div className="container-itemList">
 
-            <ItemList  category = {categoryByid } />
+            <ItemList   productos = {ListProducts } />
+
+            
             </div>
 
 

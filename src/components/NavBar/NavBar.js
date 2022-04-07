@@ -33,13 +33,14 @@ function NavBar() {
                                 </a>
 
                                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><Link to="category/:id" className="dropdown-item" href="#">Mujer</Link></li>
-                                    <li><a className="dropdown-item" href="#">Hombre</a></li>
-                                    <li><a className="dropdown-item" href="#">Niños</a></li>
+                                <li><Link to="/" className="dropdown-item" href="#">Todos los producos</Link></li>
+                                    <li><Link to="category/women" className="dropdown-item" href="#">Mujere</Link></li>
+                                    <li><Link to="category/men" className="dropdown-item" href="#">Hombre</Link></li>
+                                    <li><Link to="category/boy" className="dropdown-item" href="#">Niño</Link></li>                                    
                                 </ul>
                             </div>
                             <li className="nav-item">
-                                <a className="nav-link active text-light" aria-current="page" href="#">Inicio</a>
+                                <Link to="/" className="nav-link active text-light" aria-current="page" href="#"> Inicio</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link text-light" href="#">Nosotros</a>

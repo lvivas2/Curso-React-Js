@@ -1,7 +1,6 @@
 import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 
-
 const ItemList = ({ productos = []}) => {
 
     return (
@@ -12,7 +11,7 @@ const ItemList = ({ productos = []}) => {
 
             })}
 
-
+            
 
         </>
 
