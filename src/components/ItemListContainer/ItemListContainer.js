@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = (props) => {
     
-        const {id} = useParams ()
+        const {categoryId} = useParams ()
     
     const { titel } = props
 
@@ -31,15 +31,15 @@ const ItemListContainer = (props) => {
         getProducts()
             .then((prod) => {
                 
-               id ? filterCategory (prod, id) : setListProducts(prod) 
+               categoryId ? filterCategory (prod, categoryId) : setListProducts(prod) 
                 }) 
             
 
-    }, [id])
+    }, [categoryId])
 
-    const filterCategory =  (category, id) => {
+    const filterCategory =  (category, categoryId) => {
         return category.map ( (product) => {
-            if (product.categoryId === id) {
+            if (product.category === categoryId) {
                 return setListProducts( ListProducts => [...ListProducts, product])
                
             }
