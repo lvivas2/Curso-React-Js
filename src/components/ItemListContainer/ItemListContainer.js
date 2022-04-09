@@ -48,7 +48,7 @@ const ItemListContainer = (props) => {
             
         })
     }
-    console.log("Categoria de productos: " , ListProducts   )
+
 
     return (
         <>

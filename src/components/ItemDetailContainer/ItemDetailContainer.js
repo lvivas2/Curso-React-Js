@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const ItemDetailContainer = () => {
     
     const {id} = useParams()
-    console.log("useParams de detail", useParams() )
+
     const [object,setObject] = useState ({})
 
     useEffect( () => {
@@ -20,11 +20,10 @@ const ItemDetailContainer = () => {
                     return setObject(product)
                 }, 2000)
             }
-            console.log("mock: ", product )
         })
     }
 
-    console.log("item detail: ", object)
+  
 
     
     return (

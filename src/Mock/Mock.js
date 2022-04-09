@@ -7,7 +7,7 @@ const mockProducts = [{
     waistM: "M",
     waistXL: "XL",
     price: 5400,
-    stock: 2,
+    stock: 22,
     image: "/img/22.png", 
 },
 {

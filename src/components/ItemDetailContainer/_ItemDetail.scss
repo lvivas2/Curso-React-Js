@@ -1,10 +1,8 @@
 .container-detail-grid {
     display: grid;
     grid-template-columns: 50% 50%;
-    
 
     .detail-item {
-        
         width: 100%;
         height: 100%;
 
@@ -31,16 +29,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            tbody{
-
-                
+            tbody {
                 tr {
                     td {
                         border: 0.1px solid rgba(48, 46, 46, 0.122);
                         background-color: white;
                         width: 100px;
                         cursor: pointer;
-                        &:hover{
+                        &:hover {
                             color: white;
                             background-color: black;
                             border: none;
@@ -53,8 +49,6 @@
                     }
                 }
             }
-                
-            
         }
 
         h3 {
@@ -62,17 +56,23 @@
             font-weight: bold;
         }
 
-        button {
-            padding: 10px;
-            width: 250px;
-            margin-top: 50px;
-            border-radius: 10px;
-            background: black;
-            color: white;
-            border: none;
-        }
-        button:hover {
-            color: rgb(99, 90, 90);
+        .button-ToCart {
+            display: none;
+           
+            .button-addCart {
+                padding: 10px;
+                border: none;
+                color: white;
+                background-color: #212529;
+                margin-top: 20px;
+                border-radius: 20px;
+                font-size: 15px;
+                &:hover {
+                    background-color: white;
+                    color: black;
+                    border: 1px solid black;
+                }
+            }
         }
     }
 
@@ -84,15 +84,14 @@
             list-style: none;
             font-size: 13px;
             margin: 20px;
-            li{
-                a{
+            li {
+                a {
                     cursor: pointer;
-                    &:hover{
-                        color:rgba(0, 0, 255, 0.682);
+                    &:hover {
+                        color: rgba(0, 0, 255, 0.682);
                     }
                 }
             }
-
         }
     }
 }
