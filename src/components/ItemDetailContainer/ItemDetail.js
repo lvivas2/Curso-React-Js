@@ -1,8 +1,9 @@
 import ItemCount from "../ItemListContainer/ItemCount";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTruckFast, faArrowRotateLeft, faMobileScreen } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom";
+import CartContext from "../../Contex/CartContex";
 
 // Rutas
 
@@ -11,41 +12,28 @@ import { Link } from "react-router-dom";
 
 
 const ItemDetail = ({ details }) => {
-    const [produtToBuy, setProductToBuy] = useState({})
 
-    console.log("producto almacenado en el carrito: ", produtToBuy)
+
+    const [count, setCount] = useState(0)
+
+    console.log("producto almacenado en el carrito: ", count)
+
+    const { addProductToCart } = useContext(CartContext)
+
 
     const { titel, waistS, waistM, waistXL, price, stock, image, imageTow, imageThree, id, category } = details
 
-    const addToCart = (e) => {
-        e.stopPropagation()
 
-    }
 
     const onAdd = (add) => {
-        return setProductToBuy(add)
+        setCount(add)
+        addProductToCart({ ...details, cantidad: add })
 
     }
 
-    const removeComponent = (() => {
-
-        if (produtToBuy >= 1) {
-            const component = document.getElementsByClassName("buttonCount-detail")
-            while (component.length > 0) {
-
-                component[0].parentNode.removeChild(component[0]);
-            }
-
-            const addButtonCart = document.getElementsByClassName("button-ToCart")
-
-            addButtonCart[0].style.display = "block"
-
-        }
-
-    })
 
     const cartUpdated = (() => {
-        console.log("carrito actualizado: ", produtToBuy)
+        console.log("carrito actualizado: ", count)
     })
     return (
         <>
@@ -86,13 +74,27 @@ const ItemDetail = ({ details }) => {
                             </tbody>
                         </table>
 
-                        <div className="buttonCount-detail">
-                            <ItemCount stock={stock} initial={1} onAdd={onAdd} addToCart={addToCart} componentRemove={removeComponent} />
-                        </div>
-                        <div className="button-ToCart">
 
-                            <Link to={"/Cart"}> <button onClick={cartUpdated} className="button-addCart" >Finalizar compra</button> </Link>
-                        </div>
+                        {
+
+                            count === 0
+
+                                ?
+
+
+
+                                <div className="buttonCount-detail">
+                                    <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+                                </div>
+
+                                :
+
+
+                                <div className="button-ToCart">
+                                    <Link to={"/Cart"}> <button onClick={cartUpdated} className="button-addCart" >Finalizar compra</button> </Link>
+                                </div>
+                        }
+
 
                     </div>
 

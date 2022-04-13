@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import ItemList from "./ItemList/ItemList";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import mockProducts from "../../Mock/Mock";
@@ -7,8 +7,10 @@ import { useParams } from "react-router-dom";
 
 
 
+
 const ItemListContainer = (props) => {
-    
+
+
         const {categoryId} = useParams ()
     
     const { titel } = props
@@ -28,8 +30,7 @@ const ItemListContainer = (props) => {
     // Llamado asincronico
     useEffect(() => {
         setListProducts([])
-        getProducts()
-            .then((prod) => {
+        getProducts().then((prod) => {
                 
                categoryId ? filterCategory (prod, categoryId) : setListProducts(prod) 
                 }) 
@@ -53,12 +54,12 @@ const ItemListContainer = (props) => {
     return (
         <>
             <div>
-                <div className="item-img">
+                {/* <div className="item-img">
                     <h1 className="Titel-GYO">
                         {titel}
                     </h1>
                     <img src="/img/portadaDeportiva.png" className="" alt="..." />
-                </div>
+                </div> */}
             </div>
             <div className="container-itemList">
 

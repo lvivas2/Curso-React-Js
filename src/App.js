@@ -11,6 +11,10 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./components/Cart/Cart";
 
+//contex
+
+import {CartProvider} from "./Contex/CartContex";
+
 
 
 
@@ -20,7 +24,7 @@ function App() {
   return (
 
     <div className="App">
-
+      <CartProvider> 
       <BrowserRouter>
         <NavBar/>
         <Routes>
@@ -33,6 +37,7 @@ function App() {
         </Routes>
         <Footer/>
       </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

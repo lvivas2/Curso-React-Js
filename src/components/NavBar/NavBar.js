@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import mockProducts from "../../Mock/Mock"
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import AccountMenu from "./CartWidget/CartWidget";
 
 
 
@@ -50,13 +51,13 @@ function NavBar() {
                             </li>
                         </ul>
 
-                        <form className="d-flex">
+                        {/* <form className="d-flex">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-outline-light" type="submit">Buscar</button>
-                        </form>
+                        </form> */}
                     </div>
                 </div>
-                <CartWidget />
+                <AccountMenu/>
             </nav>
         </header>
         </>

@@ -1,25 +1,30 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import ItemCount from "../ItemCount";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import CartContext from "../../../Contex/CartContex";
+
 
 const ItemCard = ({ data }) => {
 
-    const { price, image, id, stock } = data
+    const { cartProducts, addProductToCart } = useContext (CartContext)
 
+
+    const addToCart = (e) => {
+        e.stopPropagation()
+        console.log("productos agregados: ", cartProducts)
+        addProductToCart(data)
+    }
+
+    const { price, image, id, titel, stock } = data
     const navigate = useNavigate()
-
     const chengePage = () => {
         navigate(`/item/${id}`)
     }
 
-    const addToCart = (e) => {
-        e.stopPropagation()
-        console.log("agregado al carrti: ")
-    }
 
-    const onAdd = (add) => {
-        console.log(`Cantidad de productos agregados: ${add} `)
-    }
+    // const onAdd = (add) => {
+    //     console.log(`Cantidad de productos agregados: ${add} `)
+    // }
 
     return (
 
@@ -31,8 +36,14 @@ const ItemCard = ({ data }) => {
                            
                         <div className="box">
                             <img src= {image} alt="..." />
-                            <h4> Precio: ${price} </h4>
-                            <ItemCount stock={stock} initial={1} onAdd={onAdd} addToCart={addToCart}/>
+
+                            <button onClick={addToCart}>Comprar</button>
+                            {/* <ItemCount stock={stock} initial={1} onAdd={onAdd} addToCart={addToCart}/> */}
+                        <div className="detail-card">
+                            <h4>{titel}</h4>
+                            <h4>${price}</h4>
+
+                        </div>
                         </div>
                            
                     </div>
