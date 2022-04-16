@@ -18,9 +18,9 @@ const CartProvider  =  ({children}) => {
         if( isInCart(product.id) ){
 
             const productRepeat = cartProducts.find((p) => p.id === product.id )
-            const { cantidad } = productRepeat
+            const { quantity } = productRepeat
 
-            productRepeat.cantidad = product.cantidad + cantidad
+            productRepeat.quantity = product.quantity + quantity
 
             const newProductCart = [...cartProducts]
             setCartproducts(newProductCart)
@@ -43,14 +43,27 @@ const CartProvider  =  ({children}) => {
     const deleteOne = (id) => {
         setCartproducts(cartProducts.filter(p => p.id !== id))
     }
- 
-    
+
+    const clear = () => {setCartproducts([])}
+        
+
+
+    const quantity = () => {
+        return cartProducts.reduce((amass, product) => amass += product.quantity, 0)
+    } 
+
+    const total = () => {
+        return cartProducts.reduce((amass, product) => amass = amass + (product.price * product.quantity), 0) 
+    }
+
 
     const  dataCart = {
         cartProducts,
         addProductToCart,
-        deleteOne
-       
+        deleteOne,
+        clear,
+        quantity,
+        total
     }
 
 

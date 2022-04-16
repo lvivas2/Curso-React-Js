@@ -1,15 +1,29 @@
 import React, {useContext} from "react";
 import CartContext from "../../Contex/CartContex";
+import { Link } from "react-router-dom";
+
+
+
 const Cart = (() => {
 
-    const { cartProducts, deleteOne } = useContext(CartContext)
+    const { cartProducts, deleteOne, clear, total } = useContext(CartContext)
 
 
     
     return (
         <>
-            <h2> Hola Mundo </h2>
-            <br />
+            {
+                (cartProducts.length === 0)
+                &&
+                <div>
+                    <p>No hay productos agregados en el carrito...</p>
+                    <Link to='/'>
+                        <button>
+                            Ver productos
+                        </button>
+                    </Link>
+                </div>
+            }
 
                 {
                     
@@ -20,12 +34,11 @@ const Cart = (() => {
 
                                 <div className="box">
                                     <img src={prod.image} alt="..." />
-
                                     <button onClick={() => deleteOne (prod.id)}>eliminar</button>
-                                    {/* <ItemCount stock={stock} initial={1} onAdd={onAdd} addToCart={addToCart}/> */}
                                     <div className="detail-card">
                                         <h4>{prod.titel}</h4>
                                         <h4>${prod.price}</h4>
+                                        <h4>Productos agregados: {prod.quantity}</h4>
 
                                     </div>
                                 </div>
@@ -35,7 +48,27 @@ const Cart = (() => {
                         
                     ))
 
-                }     
+                }  
+
+
+
+                 {
+                     (cartProducts.length >= 1)
+
+                     &&
+
+                 <button onClick={() => clear()}>Vaciar carrito</button>   
+                 }   
+
+                 {
+                     (cartProducts.length >= 1)
+
+                     &&
+
+                     <div>
+                         <h3>Total: {total()}</h3>
+                     </div>
+                 }
         </>
     )
 })

@@ -1,6 +1,6 @@
 import React, {useContext} from "react"
 import ItemCard from "../../ItemListContainer/ItemCard/ItemCard";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // MUI
 
@@ -28,7 +28,8 @@ import CartContext from "../../../Contex/CartContex";
 
 
 export default function AccountMenu() {
-    const { cartProducts } = useContext(CartContext)
+    const { quantity , cartProducts } = useContext(CartContext)
+    
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -38,6 +39,9 @@ export default function AccountMenu() {
         setAnchorEl(null);
     };
     console.log("cartProducts: ", cartProducts)
+
+   
+
     return (
     <div className="container-cart-item">
 
@@ -54,13 +58,13 @@ export default function AccountMenu() {
                         aria-expanded={open ? 'true' : undefined}
                     >
                         <Avatar sx={{ width: 32, height: 32 }}>
-                            <ShoppingCartIcon  color="primary" className="cart-widget"/>
+                            <ShoppingCartIcon  className="cart-widget"/>
                             </Avatar>
                             
                     </IconButton>
                 </Tooltip>
             </Box>
-            <p>{cartProducts.length}</p>
+            
             <Menu
                 anchorEl={anchorEl}
                 id="account-menu"
@@ -100,6 +104,9 @@ export default function AccountMenu() {
                     <Divider/>
                     {cartProducts.map ( (cartProduct) => {
                         const {price, image, id, titel, stock} = cartProduct
+
+
+                      
                         return (
 
                 <MenuItem className="cart-item-modal" key={id}>
@@ -121,11 +128,15 @@ export default function AccountMenu() {
                     })}
                         <Divider/>
                         <div className="footer-modal-cart">
-                            <button className="btn-custon"><Link className="    "  to="/cart">Iniciar la compra</Link> </button>
+                            <button className="btn-custon"><Link  to="/cart" className="link-btn-custon">Ver carrito</Link> </button>
+                            
 
                         </div>
             </Menu>
         </React.Fragment>
+      <div className="quantityCart">
+      {cartProducts.length > 0 && quantity()}
+          </div> 
 </div>
     );
 }

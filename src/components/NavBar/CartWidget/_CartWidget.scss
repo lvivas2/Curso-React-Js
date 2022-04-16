@@ -6,6 +6,10 @@
     p{
         color:white;
     }
+
+    .quantityCart{
+        background-color: white;
+    }
     
 }
 .cart-item-modal {
@@ -54,21 +58,30 @@
  
     
     .btn-custon{
-        border-radius: 20px;
-        border: 1px solid black;
+        
+        border: none;
+        box-shadow:  2px 1px #e10000  ;
         padding: 5px 35px 5px 35px;
         font-size: 15px;
         background-color: #212529; 
         &:hover{
             transition: 500ms;
-            background: rgba(0, 0, 0, 0.377);    
+            background: rgba(0, 0, 0, 0.377); 
+              
         }
       
         
         .link-btn-custon{
             text-decoration: none ;
             color: white;
-            
+
+        
+            &:hover{
+                transition: 500ms;
+                color: black;
+                
+            }
+           
         }
         
 

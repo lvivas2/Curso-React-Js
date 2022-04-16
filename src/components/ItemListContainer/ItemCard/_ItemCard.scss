@@ -3,24 +3,22 @@
 .card-item-dos {
     width: 33.333%;
     float: left;
-    
 
     .container__box {
         position: relative;
         overflow: hidden;
         
         width: 390px;
-        
-        
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         .box {
-            border-radius: 20px;
-            
+         
+
             width: 253px;
             max-height: 390px;
+            
             
             margin: 25px 0px 25px 0px;
             display: flex;
@@ -33,29 +31,72 @@
             border: 1px solid black;
             &:hover {
                 transform: scale(1.1);
-                box-shadow: 0px 0px 30px -5px rgba(0, 0, 0, 0.5);
-                
-    
+               
             }
-            
 
             img {
-                border-radius: 20px 20px 0px 0px;
+                border-left: 1px solid black;
+                border-right: 1px solid black;
                 width: 253px;
                 height: auto;
-                border-bottom: 4px solid black;
+                border-bottom: 2px solid black;
             }
 
-           
+            .btn-container-card{
+                
+                display: flex;
+                align-items: center;
+                align-content: center;
+                padding: 5px;
+                
+                
+
+                .btn-card-cart {
+                    
+                    border: none;
+                    margin-right: 20px;
+                    font-size: 13px;
+                    background-color: #212529;
+                    color: white;
+                    padding: 5px;
+                    &:hover{
+                        transition: 700ms;
+                        box-shadow: 2px 1px #000000;
+                        background-color: #ffffff;
+                        color: rgb(0, 0, 0);
+                    }
+                    
+                }
+    
+                .btn-card-view{
+                    margin-left: 20px;
+                    border: 1px solid black;
+                    // box-shadow: 2px 1px #000000;
+                    padding: 5px;
+                    font-size: 13px;
+                    background-color: #ffffff;
+                    color: black;
+                    
+                    &:hover{
+                        transition: 700ms;
+                        box-shadow: 2px 1px #000000;
+                        background-color: #ffffff;
+                        color: rgb(0, 0, 0);
+                    }
+                    .face-icon{
+                        background-color: red;
+                        margin-left: 10px;
+                        padding: 1px;
+                    }
+                }
+            }
+
         }
 
         .detail-card {
-            
             width: auto;
             width: 253px;
             max-height: 390px;
-            background-color: rgba(255, 255, 255, .15);  
-            border-radius: 0px 0px 20px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -63,11 +104,9 @@
             cursor: pointer;
             transition: all 300ms ease;
             position: relative;
-            h4{
+            h4 {
                 font-size: 1rem;
             }
-            
-           
         }
     }
 }

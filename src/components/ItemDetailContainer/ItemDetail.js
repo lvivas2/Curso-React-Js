@@ -27,10 +27,11 @@ const ItemDetail = ({ details }) => {
 
     const onAdd = (add) => {
         setCount(add)
-        addProductToCart({ ...details, cantidad: add })
+        addProductToCart({ ...details, quantity: add })
+        console.log('new categori, cantidad, ', addProductToCart)
 
     }
-
+    
 
     const cartUpdated = (() => {
         console.log("carrito actualizado: ", count)
