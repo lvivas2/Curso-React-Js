@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTruckFast, faArrowRotateLeft, faMobileScreen } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom";
 import CartContext from "../../Contex/CartContex";
+import LinearProgress from '@mui/material/LinearProgress';
 
 // Rutas
 
@@ -13,7 +14,7 @@ import CartContext from "../../Contex/CartContex";
 
 const ItemDetail = ({ details }) => {
 
-
+    const [loading, setLoading] = useState(true)
     const [count, setCount] = useState(0)
 
     console.log("producto almacenado en el carrito: ", count)
@@ -36,8 +37,24 @@ const ItemDetail = ({ details }) => {
     const cartUpdated = (() => {
         console.log("carrito actualizado: ", count)
     })
+
+
+    setTimeout(()=>{
+        setLoading(false)
+    },2000)
+    
     return (
         <>
+
+{loading ? (
+                <div>
+                    <h2>Cargando productos...</h2>
+                    <LinearProgress/>
+                </div>
+                
+            ) : (
+
+
             <div className="container-detail-grid">
 
                 <div className="detail-grid-item" >
@@ -113,7 +130,7 @@ const ItemDetail = ({ details }) => {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>)}
 
 
 

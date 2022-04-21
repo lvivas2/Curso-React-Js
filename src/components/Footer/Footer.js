@@ -2,9 +2,12 @@ import React from "react";
 
 const Footer = () => {
 
-    return (
 
+
+
+    return (
         <>
+
             <div className="pt-5 pb-5 footer">
                 <div className="container">
                     <div className="row">

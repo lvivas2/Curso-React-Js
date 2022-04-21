@@ -19,10 +19,6 @@ import {CartProvider} from "./Contex/CartContex";
 
 
 
-
-
-
-
 function App() {
   return (
 
