@@ -83,14 +83,31 @@
             margin: auto;
             border-top: 1px solid rgba(0, 0, 0, 0.327);
 
-            .btn-clear {
-                border: 1px solid black;
-                background: white;
-                &:hover {
-                    transition: 500ms;
-                    box-shadow: 2px 1px black;
+          
+                .btn-buy{
+                    border: 1px solid black;
+                    background: white;
+                    padding-left: 10px;
+                    
+                    &:hover {
+                        transition: 500ms;
+                        box-shadow: 2px 1px black;
+                    }
                 }
-            }
+    
+                .btn-clear {
+                    border: 1px solid black;
+                    background: white;
+                    margin-left: 125.6px;
+                    
+                    &:hover {
+                        transition: 500ms;
+                        box-shadow: 2px 1px black;
+                    }
+                }   
+
+            
+            
 
             div {
                 display: flex;

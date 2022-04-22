@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import CartContext from "../../Contex/CartContex";
+import ModalCustom from "../Modal/Modal";
 import { Link } from "react-router-dom";
 
 // Form MUI
@@ -10,12 +11,40 @@ import TextField from '@mui/material/TextField';
 
 
 const Cart = (() => {
-
+    
     const { cartProducts, deleteOne, clear, total } = useContext(CartContext)
+    const [openModal, setOpenModal] = useState(false)
+    const [buy, setBuy] = useState(
+
+        {
+            buyer:{
+                name:"",
+                phone:"",
+                email:""
+            },
+            items: cartProducts.map((cartProducts)=> {
+                return{
+                    id: cartProducts.id,
+                    titel: cartProducts.titel,
+                    price: cartProducts.price,
+                }
+            }),
+            total: total()
+        }
+    )
+
+    console.log("buy", buy)
 
     console.log("cartProducts: ", cartProducts)
 
+    
+    const addBuy = () =>{
+        setOpenModal(true)
+
+    }
+
     return (
+        <>
         <Box
             component="form"
             sx={{
@@ -83,12 +112,19 @@ const Cart = (() => {
                             (cartProducts.length >= 1)
 
                             &&
+                            <>
+                           
+
+                            
 
                             <button className="btn-clear" onClick={() => clear()}>Vaciar carrito</button>
+                           
+                            </>
                         }
-
+                        
                     </div>
                 </div>
+                    
                 <div className="data-toContact">
                         <h2>Datos de contacto</h2>
                     <div>
@@ -118,9 +154,18 @@ const Cart = (() => {
                     </div>
                 </div>
 
-
             </div>
         </Box>
+                  
+        <button className="btn-buy" onClick={addBuy}>Finalizar Compra</button>
+                        <ModalCustom handleCloses={() => setOpenModal(false)} open={openModal}>
+                            <h2>
+                                Formulario
+                            </h2>
+                        </ModalCustom>
+
+                        
+                        </>
     )
 })
 
