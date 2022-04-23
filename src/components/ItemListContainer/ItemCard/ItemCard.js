@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import ItemCount from "../ItemCount";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../../../Contex/CartContex";
 import FaceIcon from '@mui/icons-material/Face';
 

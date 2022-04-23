@@ -9,7 +9,7 @@ const CartProvider  =  ({children}) => {
 
     const [cartProducts, setCartproducts] = useState ([])
     
-    console.log('lista de productos: ', cartProducts)
+
     
     
         

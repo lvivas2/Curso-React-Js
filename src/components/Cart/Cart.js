@@ -1,29 +1,33 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../../Contex/CartContex";
 import ModalCustom from "../Modal/Modal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-// Form MUI
+import db from "../../firebase";
+import { addDoc, collection } from "firebase/firestore"
 
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+
+
 
 
 
 const Cart = (() => {
-    
+
     const { cartProducts, deleteOne, clear, total } = useContext(CartContext)
     const [openModal, setOpenModal] = useState(false)
+    const [boyOrder, setBuyOrder] = useState()
+    const [formData, setFormData] = useState({
+
+        name: "",
+        phone: "",
+        email: ""
+    })
     const [buy, setBuy] = useState(
 
         {
-            buyer:{
-                name:"",
-                phone:"",
-                email:""
-            },
-            items: cartProducts.map((cartProducts)=> {
-                return{
+            buyer: formData,
+            items: cartProducts.map((cartProducts) => {
+                return {
                     id: cartProducts.id,
                     titel: cartProducts.titel,
                     price: cartProducts.price,
@@ -33,26 +37,46 @@ const Cart = (() => {
         }
     )
 
-    console.log("buy", buy)
-
-    console.log("cartProducts: ", cartProducts)
-
-    
-    const addBuy = () =>{
-        setOpenModal(true)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let prevOrder = {
+            ...buy,
+            buyer: formData
+        }
+        setBuy({
+            ...buy,
+            buyer: formData
+        })
+        pushOrder(prevOrder)
 
     }
 
-    return (
+    const pushOrder = async (prevOrder) => {
+        const orderFirebase = collection(db, "Ordenes")
+        const order = await addDoc(orderFirebase, prevOrder)
+        console.log("Orden", order.id)
+        setBuyOrder(order.id)
+    }
+
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
+
+    }
+
+
+ const navigate = useNavigate()
+
+
+
+
+
+return (
+
         <>
-        <Box
-            component="form"
-            sx={{
-                '& .MuiTextField-root': { m: 1, width: '25ch' },
-            }}
-            noValidate
-            autoComplete="off"
-        >
 
             <div className="container-page-cart">
 
@@ -113,59 +137,50 @@ const Cart = (() => {
 
                             &&
                             <>
-                           
 
-                            
+                                <button className="btn-buy" onClick={() => setOpenModal(true)}>Finalizar Compra</button>
+                                <button className="btn-clear" onClick={() => clear()}>Vaciar carrito</button>
 
-                            <button className="btn-clear" onClick={() => clear()}>Vaciar carrito</button>
-                           
                             </>
                         }
-                        
+
                     </div>
                 </div>
-                    
-                <div className="data-toContact">
-                        <h2>Datos de contacto</h2>
-                    <div>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Mail"
-                            defaultValue=""
-                        />
-                        <h2>Entrega</h2>
-                        <TextField 
-                        id="outlined-search" 
-                        label="País" 
-                        type="search" />
-                       
-                        <TextField 
-                        id="outlined-search" 
-                        label="Ciudad" 
-                        type="search" />
 
-                         <TextField 
-                        id="outlined-search" 
-                        label="Codigo postal" 
-                        type="search" />
 
-                       
-                    </div>
-                </div>
 
             </div>
-        </Box>
-                  
-        <button className="btn-buy" onClick={addBuy}>Finalizar Compra</button>
-                        <ModalCustom handleCloses={() => setOpenModal(false)} open={openModal}>
-                            <h2>
-                                Formulario
-                            </h2>
-                        </ModalCustom>
 
-                        
-                        </>
+            <ModalCustom handleClose={() => setOpenModal(false)} open={openModal}>
+                {boyOrder ? (
+                    <>
+                        <h3>Orden generada correctamente</h3>
+                        <h3>Su número de orden es {boyOrder}</h3>
+                        <button onClick={() => navigate("/")}>Aceptar</button>
+                    
+                    </>
+                ) : (
+
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" name="name" placeholder="Nombre" onChange={handleChange} value={formData.name} />
+                        <input type="number" name="phone" placeholder="Telefono" onChange={handleChange} value={formData.phone} />
+                        <input type="email" name="email" placeholder="Mail" onChange={handleChange} value={formData.email} />
+
+                        <button type="submit">Enviar</button>
+                    </form>
+
+
+                )}
+
+
+
+            </ModalCustom>
+
+
+
+
+
+        </>
     )
 })
 

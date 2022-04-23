@@ -31,7 +31,7 @@ export default function AccountMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    console.log("cartProducts: ", cartProducts)
+
 
 
 
