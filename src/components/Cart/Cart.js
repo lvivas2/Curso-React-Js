@@ -92,7 +92,7 @@ return (
                             <div>
                                 <p>No hay productos agregados en el carrito...</p>
                                 <Link to='/'>
-                                    <button>
+                                    <button className="btn-view-products">
                                         Ver productos
                                     </button>
                                 </Link>

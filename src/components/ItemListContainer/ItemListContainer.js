@@ -3,6 +3,7 @@ import ItemList from "./ItemList/ItemList";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import { useParams } from "react-router-dom";
 import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 import db from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -76,9 +77,11 @@ const ItemListContainer = (props) => {
             
 
             {loading ? (
-                <div>
-                    <h2>Cargando productos...</h2>
-                    <LinearProgress/>
+                <div className="container-loading">
+                    <div className="ItemList-loading">
+                        {/* <h2>Cargando productos...</h2> */}
+                    <CircularProgress/>
+                        </div>
                 </div>
                 
             ) : (

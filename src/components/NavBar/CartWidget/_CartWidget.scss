@@ -1,90 +1,85 @@
-.container-cart-item {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.cart-titel-card{
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: #ffffffa5;
-    margin-right: 50px;
-
-    .quantityCart {
-        color: rgb(0, 0, 0);
-        margin: auto;
-    }
-
-    .icon-cart-widget{
-        
-        
-        margin: auto;
-    }
 }
 
-.cart-modal {
-    .MuiPaper-root.MuiPaper-elevation p {
-        padding-left: 20px;
-        padding-right: 20px;
-        text-align: center;
-    }
-    .Muimenu-list {
-        width: 300px;
-    }
-}
 .cart-item-modal {
     display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.536);
+    width: 100%;
+    justify-content: space-between;
+
     .cart-modal-img {
-        overflow: hidden;
-        width: 30%;
-        height: 100px;
         img {
-            width: 100%;
-            height: 100%;
+            border: 1px solid black;
+            width: 100px;
+            margin: 5px;
         }
     }
 
     .cart-modal-info {
-            width: 60%;
-            padding-left: 10px;
-            padding-right: 10px;
-            p {
-                // padding: 0px ;
-                margin-top: 0px;
-                margin-bottom: 5px;
-                font-size: 13px;
-                text-align: left;
-            }
+        margin: 10px;
+        width: 200px;
 
-       
+        p {
+            overflow: auto;
+        }
     }
+
     .cart-modal-action {
-        display: flex;
-        justify-content: center;
         align-items: center;
-        width: 10%;
+        align-self: center;
     }
 }
 
 .footer-modal-cart {
-    padding: 0px 10px;
+    align-self: center;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
+    justify-content: space-between;
+    padding: 5px 5px 0px 5px;
+    width: 100%;
     .btn-custon {
-        margin-top: 10px;
         border: 1px solid black;
-        padding: 2px 35px 2px 35px;
-        font-size: 15px;
-        color: black;
         background-color: white;
+        padding: 5px 50px 5px 50px;
         &:hover {
             transition: 500ms;
             box-shadow: 2px 1px #000000;
         }
 
         .link-btn-custon {
+            color: #000000;
             text-decoration: none;
-            color: black;
         }
     }
+
+    .btn-delateAll{
+        border: 1px solid black;
+        background-color: white;
+        &:hover {
+            transition: 500ms;
+            box-shadow: 2px 1px #000000;
+        }
+
+    }
 }
+
+
+.container-message-cart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    margin-top: 50%;
+    .face-icon-sad{
+        width: 100%;
+        font-size: 40px;
+    }
+
+    .message-cart{
+        padding: 0px 5px 0px 5px;
+        font-size: 17px;
+    }
+
+}
+

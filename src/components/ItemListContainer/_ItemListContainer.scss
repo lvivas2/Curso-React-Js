@@ -26,5 +26,16 @@
 
 .container-itemList{
     margin: 35px;
-    background-color: aquamarine;
+    
+    
+}
+
+.container-loading{
+    
+    min-height: 100vh;
+
+    .ItemList-loading{
+        min-height: 100vh;
+        padding-top: 15%;
+    }
 }

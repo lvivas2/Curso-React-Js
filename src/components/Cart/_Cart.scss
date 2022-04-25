@@ -17,6 +17,15 @@
         border-right: 1px solid rgb(0, 0, 0);
         overflow: scroll;
         overflow-x: hidden;
+
+        .btn-view-products{
+            border: 1px solid black;
+        background-color: white;
+        &:hover {
+            transition: 500ms;
+            box-shadow: 2px 1px #000000;
+        }
+        }
     }
 
     .card-items-total {

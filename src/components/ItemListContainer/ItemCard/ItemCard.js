@@ -27,6 +27,9 @@ const ItemCard = ({ data }) => {
     return (
 
         <>
+        <div className="container-card-item-dos">
+
+        
             <div className="card-item-dos" onClick={chengePage}>
                 <div className="container__box">
                     <div className="box">
@@ -41,6 +44,7 @@ const ItemCard = ({ data }) => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     )

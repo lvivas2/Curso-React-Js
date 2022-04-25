@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import AccountMenu from "./CartWidget/CartWidget";
+import SwipeableTemporaryDrawer from "./CartWidget/CartWidget";
 
 
 
@@ -54,7 +55,7 @@ function NavBar() {
                             </ul>
                         </div>
                     </div>
-                    <AccountMenu />
+                    <SwipeableTemporaryDrawer />
                 </nav>
             </header>
         </>
