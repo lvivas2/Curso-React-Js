@@ -3,61 +3,137 @@ import { Link } from "react-router-dom"
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import AccountMenu from "./CartWidget/CartWidget";
-import SwipeableTemporaryDrawer from "./CartWidget/CartWidget";
+
+import SwipeableTemporaryDrawer from "./dropdown/dropdown";
+
+
+// MUI
+
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import MailIcon from '@mui/icons-material/Mail';
+import PhoneIcon from '@mui/icons-material/Phone';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import Divider from '@mui/material/Divider';
+
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+
 
 
 
 function NavBar() {
 
+    useEffect(() => {
+        window.addEventListener("scroll", onScrollWindow)
+    })
+
+    const [dropdown, setDropdown] = useState(false)
+    const [classNav, setClassNav] = useState()
+    const [addClass, setAddClass] = useState()
+    const [addClassSubMenu, setAddClassSubMenu] = useState()
+
+    const openDropdown = () => {
+        setDropdown(!dropdown)
+    }
+
+
+    const onScrollWindow = () => {
+        if (window.scrollY > 68) {
+            setClassNav("ClaseAgregada")
+        } else {
+            setClassNav()
+        }
+    }
+
+
+    const openClose = () => {
+        if (addClass == "openPageMenu") {
+            setAddClass()
+
+        } else {
+            setAddClass("openPageMenu")
+        }
+    }
+
+    const openCloseSubMenu = () => {
+        if (addClassSubMenu == "openSubMenu") {
+            setAddClassSubMenu()
+        } else {
+            setAddClassSubMenu("openSubMenu")
+        }
+    }
+
+    const removeEvent = (e) => {
+        e.preventDefault()
+    }
 
 
     return (
 
         <>
+            <div className="container-navBar">
+                <div className="container-info-nav">
+                    <div className="info-nav">
+                        <a href="#" className="info-nav-mail">
+                            <span><MailIcon fontSize="mediun" /> info@domain.com</span>
+                        </a>
 
+                        <a href="#" className="info-nav-phone">
+                            <span><PhoneIcon fontSize="mediun" />+1 234 4567 8910</span>
+                        </a>
 
-            <header className="mail-header">
-                <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-                    <div className="container-fluid">
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                            <Link to="/" className="navbar-brand">
-                                <img className="img-logo" src="/img/GYO.png" alt="..." />
-                            </Link>
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                {/* Lista desplegable */}
-                                <div className="dropdown">
-                                    <a className="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Productos
-                                    </a>
-
-                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><Link to="/" className="dropdown-item" href="#">Todos los producos</Link></li>
-                                        <li><Link to="category/women" className="dropdown-item" href="#">Mujer</Link></li>
-                                        <li><Link to="category/men" className="dropdown-item" href="#">Hombre</Link></li>
-                                        <li><Link to="category/boy" className="dropdown-item" href="#">Niño</Link></li>
-                                    </ul>
-                                </div>
-                                <li className="nav-item">
-                                    <Link to="/" className="nav-link active text-light" aria-current="page">Inicio</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link text-light" href="#">Nosotros</a>
-                                </li>
-                                <li className="nav-item Light">
-                                    <a className="nav-link text-light" href="#">Contactos</a>
-                                </li>
-                                <li className="nav-item Light">
-                                    <Link to="/cart" className="nav-link active text-light" aria-current="page">Carrito</Link>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
-                    <SwipeableTemporaryDrawer />
-                </nav>
-            </header>
+                    <div className="networks">
+
+                        <a href="#"><InstagramIcon fontSize="mediun" /></a>
+                        <a href="#"><FacebookIcon fontSize="mediun" /></a>
+                        <a href="#"><TwitterIcon fontSize="mediun" /></a>
+                    </div>
+                </div>
+
+
+                <header className={`container-header ${classNav}`}>
+                    <Link to="/" className="nav-brand"><div >
+                        <img className="img-logo" src="/img/GYO.png" alt="..." />
+                    </div>
+                    </Link>
+                    <nav className="container-nav">
+                        <ul className="container-ul">
+                            <li><Link to="/" aria-current="page">Inicio</Link></li>
+                            <li className="sub-menu">
+                            
+                                <Dropdown className="dropdown-nav" isOpen={dropdown} toggle={openDropdown} onClick={removeEvent}>
+                                    <DropdownToggle caret className="DropdownToggle">
+                                        Categorias
+                                    </DropdownToggle>
+
+                                    <DropdownMenu className="DropdownMenu">
+                                    <Link to="category/boy"><DropdownItem>Niños </DropdownItem></Link>
+                                    <Link to="category/women"><DropdownItem>Mujeres</DropdownItem></Link>
+                                    <Link to="category/men"><DropdownItem>Hombres</DropdownItem></Link>
+                                    </DropdownMenu>
+
+                                </Dropdown>
+                            
+                            </li>
+                            <li><a href="#events-section">Eventos</a></li>
+                            <li><a href="#gallery-section">Nosotros</a></li>
+                            <li><Link to="/error">Contactos</Link></li>
+                            <li><Link to="/cart" aria-current="page">Carrito</Link></li>
+                        </ul>
+                        <div className="cartWidet-nav">
+                            <CartWidget />
+                        </div>
+                    </nav>
+
+
+                </header>
+            </div>
+            {/* <div className="paddinh-nav-page"></div> */}
+
+
         </>
     )
 }

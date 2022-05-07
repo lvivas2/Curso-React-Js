@@ -25,11 +25,10 @@ const ItemDetail = ({ details }) => {
     const { titel, waistS, waistM, waistXL, price, stock, image, imageTow, imageThree, id, category } = details
 
 
-
+    console.log("imagen: ", image)
     const onAdd = (add) => {
         setCount(add)
         addProductToCart({ ...details, quantity: add })
-        console.log('new categori, cantidad, ', addProductToCart)
 
     }
     
@@ -47,8 +46,8 @@ const ItemDetail = ({ details }) => {
         <>
 
 {loading ? (
-                <div>
-                    <h2>Cargando productos...</h2>
+                <div className="loading-item-detail">
+                    <h2>Cargando producto...</h2>
                     <LinearProgress/>
                 </div>
                 

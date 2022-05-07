@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./components/Cart/Cart";
+import Page404 from "./pages/Page404/Page404";
 
 //contex
 
@@ -32,7 +33,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer/>}/>
           <Route path="/detail" element={<ItemDetailContainer />}/>
           <Route path="/cart" element={<Cart/>}/>
-          <Route path="*" element={"error 404"}/>
+          <Route path="*" element={<Page404/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

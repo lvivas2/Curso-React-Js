@@ -8,7 +8,7 @@ import { addDoc, collection } from "firebase/firestore"
 
 
 
-
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
 const Cart = (() => {
@@ -20,7 +20,8 @@ const Cart = (() => {
 
         name: "",
         phone: "",
-        email: ""
+        email: "",
+        comment: ""
     })
     const [buy, setBuy] = useState(
 
@@ -36,6 +37,8 @@ const Cart = (() => {
             total: total()
         }
     )
+
+    console.log("buy: ", buy)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -68,13 +71,13 @@ const Cart = (() => {
     }
 
 
- const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
 
 
 
-return (
+    return (
 
         <>
 
@@ -137,10 +140,10 @@ return (
 
                             &&
                             <>
-
-                                <button className="btn-buy" onClick={() => setOpenModal(true)}>Finalizar Compra</button>
-                                <button className="btn-clear" onClick={() => clear()}>Vaciar carrito</button>
-
+                                <div className="container-btn-cart">
+                                    <button className="btn-buy" onClick={() => setOpenModal(true)}>Finalizar Compra</button>
+                                    <button className="btn-clear" onClick={() => clear()}>Vaciar carrito</button>
+                                </div>
                             </>
                         }
 
@@ -151,25 +154,51 @@ return (
 
             </div>
 
-            <ModalCustom handleClose={() => setOpenModal(false)} open={openModal}>
+            <ModalCustom className="container-modal" handleClose={() => setOpenModal(false)} open={openModal}>
                 {boyOrder ? (
                     <>
-                        <h3>Orden generada correctamente</h3>
-                        <h3>Su número de orden es {boyOrder}</h3>
-                        <button onClick={() => navigate("/")}>Aceptar</button>
-                    
+                        <div className="cart-submit">
+                            <h3>Orden generada correctamente</h3>
+                            <h3>Su número de orden es {boyOrder}</h3>
+                            <button onClick={() => navigate("/")}>Aceptar</button>
+                        </div>
                     </>
                 ) : (
+                    <div className="container-modal-form">
+                        <Form className="container-form" onSubmit={handleSubmit}>
+                            <FormGroup>
+                                <Label for="exampleText">Nombre</Label>
+                                <Input type="text" name="name" placeholder="Nombre" onChange={handleChange} value={formData.name} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for="examplePassword">Télefono</Label>
+                                <Input type="number" name="phone" id="examplePassword" placeholder="Telefono" onChange={handleChange} value={formData.phone} />
+                            </FormGroup>
 
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" name="name" placeholder="Nombre" onChange={handleChange} value={formData.name} />
-                        <input type="number" name="phone" placeholder="Telefono" onChange={handleChange} value={formData.phone} />
-                        <input type="email" name="email" placeholder="Mail" onChange={handleChange} value={formData.email} />
+                            <FormGroup>
+                                <Label for="exampleEmail">Email</Label>
+                                <Input type="email" name="email" id="exampleEmail" placeholder="Email" onChange={handleChange} value={formData.email} />
+                            </FormGroup>
 
-                        <button type="submit">Enviar</button>
-                    </form>
+                            <FormGroup>
+                                <Label for="exampleText">Comentario</Label>
+                                <Input type="textarea" name="comment" onChange={handleChange} value={formData.comment} />
+                            </FormGroup>
 
 
+
+
+
+                            {/* <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" />{' '}
+                                Check me out
+                            </Label>
+                        </FormGroup> */}
+                            <Button>Submit</Button>
+                        </Form>
+
+                    </div>
                 )}
 
 

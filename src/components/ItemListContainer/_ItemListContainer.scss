@@ -1,41 +1,49 @@
-.card {
-    background-color: aqua;
-    width: 15rem;
-}
+.container-card-products{
 
-.item-img {
-    margin-top: 5.6px;
+    float: left;
     width: 100%;
-    height: 550px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px ;
-    h1 {
-        position: absolute;
-        left: 50%;
-        z-index: 1;
-        transform: translate(-50%, 50%);
-        color: white;
+    margin-bottom: 20px;
+    
+
+    .card-item{
+        width: 200px;
+        margin: 30px 30px 50px 30px;
+        border: 1px solid black;
+        // &:nth-of-type(3n + 1) {
+        //     margin-left: 0px;
+        // }
     }
-    img {
-        height: 100%;
-        width: 100%;
+
+
+    // ////
+
+    .container-itemList{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .hero {
+            
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-image: url("../../../public/img/portadaDeportiva.png");
+        }
+        
     }
-}
-
-
-.container-itemList{
-    margin: 35px;
     
-    
-}
-
-.container-loading{
-    
-    min-height: 100vh;
-
-    .ItemList-loading{
+    .container-loading{
+        
         min-height: 100vh;
-        padding-top: 15%;
+    
+        .ItemList-loading{
+            min-height: 100vh;
+            padding-top: 15%;
+        }
     }
+
 }
+
+

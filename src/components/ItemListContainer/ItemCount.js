@@ -31,10 +31,12 @@ const ItemCount = ({ stock, initial, onAdd, componentRemove }) => {
         <>
             <div className="container-count">
                 <div>
+                    <div className="container-input-btn">
                     <button className="button-item-count" onClick={removeProduct}><i className="bi bi-dash-square"></i></button>
-                    <input value={add} onChange={handleChange} />
+                    <input value={add} onChange={handleChange} className="input-count" />
                     <button className="button-item-count" onClick={addProduct}><i className="bi bi-plus-square"></i></button>
-                    <button className="button-item-count" onClick={ ( () => {funtionOne() })  } type="button" > Añadir al carrito</button>
+                    </div>
+                    <button className="button-item-count-add" onClick={ ( () => {funtionOne() })  } type="button" > Añadir al carrito</button>
                 </div>
             </div>
 

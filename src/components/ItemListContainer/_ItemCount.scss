@@ -5,39 +5,56 @@
     align-items: center;
     justify-content: center;
     
-    
+    // border: 1px solid black;
 
     div {
 
         height: auto;
         width: auto;
-       
-        input {
-            width: 50px;
-            margin: 5px 0px 5px 0px;
-            
-            
-            &:hover{
-                box-shadow: 1px 1px 30px 5px rgba(255, 255, 255, 0.063);
+        display: flex;
+        
+        .container-input-btn{
+
+            border: 1px solid black;
+
+            input {
+                text-align: center;
+                width: 50px;
+                margin: 5px 0px 5px 0px;
+                border: none;
+            }
+            .button-item-count{
+                background-color: white;
+                width: auto;
+                color: black;
+                font-size: 18px;
+                border: none;
+                transition: 500ms;
+                &:hover{
+                    transition: 500ms;
+                    color: rgba(0, 0, 0, 0.521);
+                    
+                }
             }
         }
-
-        .button-item-count{
-            // margin: 0px 20px 0px 20px;
-            background-color: #212529;
+        .button-item-count-add{
+            background-color: white;
             width: auto;
-            color: white;
-            font-size: 15px;
-            border: none;
-            border-radius: 20px;
-            box-shadow: 1px 1px 30px -5px #20202049;
-            margin: 5px;
+            color: black;
+            border: 1px solid black;
+            font-size: 18px;
+            margin: 0px 5px 0px 5px;
+            transition: 500ms;
             &:hover{
                 background-color: white;
                 color: black;
-                border: 1px solid black;
+                transition: 500ms;
+                box-shadow: 2px 1px #000000;
             }
         }
+
+
+       
     }
 
     

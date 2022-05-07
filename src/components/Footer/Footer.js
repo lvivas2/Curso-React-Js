@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <>
                 <div className="pt-5 pb-5 footer">
-                    <div className="container">
+                    <div>
                         <div className="row">
                             <div className="col-lg-5 col-xs-12 about-company">
                                 <h2>Heading</h2>

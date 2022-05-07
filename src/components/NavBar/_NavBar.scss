@@ -1,4 +1,249 @@
-.Select-Nav{
-    position: fixed;
-    left: 327px;
+.paddinh-nav-page {
+    height: 25vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: #000000;
+}
+
+.container-navBar {
+    width: 100%;
+    // overflow: hidden;
+    position: absolute;
+    .container-info-nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        @media screen and (max-width: 850px) {
+            padding: 5px;
+        }
+        @media screen and (max-width: 380px) {
+            padding: 0;
+        }
+        .info-nav {
+            font-size: 15px;
+            width: 50%;
+            a {
+                color: gray;
+                text-decoration: none;
+                margin: 30px;
+                &:hover {
+                    color: rgb(79, 79, 79);
+                }
+            }
+
+            .info-nav-mail {
+                @media screen and (max-width: 850px) {
+                    // display: block;
+                    margin: 0;
+                }
+                @media screen and (max-width: 380px) {
+                    display: none;
+                }
+            }
+
+            .info-nav-phone {
+                @media screen and (max-width: 850px) {
+                    display: block;
+                    margin: 5px 0px 0px 0px;
+                }
+                @media screen and (max-width: 380px) {
+                    display: none;
+                }
+            }
+        }
+
+        .networks {
+            font-size: 18px;
+            width: 50%;
+            @media screen and (max-width: 850px) {
+                align-self: center;
+            }
+
+            a {
+                color: gray;
+                margin-left: 30px;
+                &:hover {
+                    color: rgb(79, 79, 79);
+                }
+
+                @media screen and (max-width: 380px) {
+                    // margin-left: 15px;
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .ClaseAgregada {
+        background-color: rgb(11, 13, 35);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        transition: 700ms;
+        z-index: 1;
+    }
+
+    .container-header {
+        border-top: 1px solid gray;
+        display: flex;
+        justify-content: space-between;
+        transition: 700ms;
+
+        .nav-brand {
+            width: 30%;
+            margin-top: 10px;
+            a {
+                text-decoration: none;
+                color: gray;
+                &:hover {
+                    color: rgb(79, 79, 79);
+                }
+            }
+        }
+
+        .container-nav {
+            width: 100%;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            justify-items: center;
+
+            .container-ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                text-align: left;
+
+                .sub-menu {
+                    .dropdown-nav {
+                        padding: 0;
+                        margin: 0;
+                        border: none;
+                        background: none;
+                        color: inherit;
+                        font: inherit;
+                        cursor: pointer;
+                        // outline: inherit;
+                        all: unset;
+                        // outline: dashed red;
+
+                        .DropdownToggle {
+                            background-color: rgba(0, 0, 0, 0);
+                            border-color: rgba(0, 0, 0, 0);
+                            font-size: 16px;
+                            color: gray;
+
+                            padding: 0;
+                            margin: 0;
+                            border-radius: 0px;
+                            border: none;
+                            &:focus {
+                                border-radius: 3px;
+
+                                
+                                box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0);
+                                outline-offset: 1px rgb(255, 255, 255);
+                            }
+
+                            &:focus-visible{
+                                outline-offset: 1px rgb(255, 0, 0);
+                            }
+                        }
+
+                        .DropdownMenu {
+                            border: none;
+                        }
+                    }
+                }
+
+                li {
+                    max-height: 26px;
+                    float: left;
+                    margin: 10px;
+
+                    a {
+                        color: gray;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: rgb(79, 79, 79);
+                        }
+                    }
+                }
+            }
+
+            .cartWidet-nav {
+                display: flex;
+                margin-left: 100px;
+                padding-left: 100px;
+            }
+        }
+    }
+}
+
+.dropdownNav {
+    width: 300px;
+}
+
+.container-menu-992 {
+    margin: auto;
+    min-width: 300px;
+    border: 2px solid rgb(0, 129, 17);
+    .listMenu-992 {
+        border: 2px solid rgb(21, 0, 129);
+        padding: 30px;
+
+        li {
+            list-style: none;
+            margin-top: 15px;
+
+            a {
+                color: rgba(255, 255, 255, 0.6);
+                text-decoration: none;
+                font-size: 15px;
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+        .menuPage {
+            button {
+                border: none;
+
+                padding: 0;
+                background: none;
+
+                transition: 500ms;
+                &:hover {
+                    transition: 500ms;
+                    box-shadow: 2px 1px #000000;
+                }
+            }
+
+            .openPageMenu {
+                display: none;
+                border: 1px solid rgb(255, 0, 0);
+            }
+
+            .subMenu {
+                a {
+                    color: darkgoldenrod;
+                }
+                .openSubMenu {
+                    border: 1px solid rgb(174, 0, 255);
+                    display: none;
+                }
+            }
+
+            &:hover {
+                .ul-section-one {
+                    transition: 500ms;
+                    display: block;
+                }
+            }
+        }
+    }
 }

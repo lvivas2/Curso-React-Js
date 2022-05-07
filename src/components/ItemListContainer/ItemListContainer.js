@@ -25,17 +25,16 @@ const ItemListContainer = (props) => {
     const getProducts = async () => {
         const itemCollection = collection(db, "productos")
         const productSnapshot = await getDocs(itemCollection)
-        console.log("productSnapshot: ", productSnapshot)
         const productList = productSnapshot.docs.map(
-            (doc) =>{
+            (doc) => {
                 const product = doc.data()
                 product.id = doc.id
                 return product
-        
+
             }
         )
         return productList
-        
+
     }
 
     // Llamado asincronico
@@ -64,34 +63,27 @@ const ItemListContainer = (props) => {
 
     return (
         <>
-            {/* <div>
-                <div className="item-img">
-                    <h1 className="Titel-GYO">
-                        {titel}
-                    </h1>
-                    <img src="/img/portadaDeportiva.png" className="" alt="..." />
-                </div>
-            </div> */}
+            <div className="container-card-products">
 
 
-            
-
-            {loading ? (
-                <div className="container-loading">
-                    <div className="ItemList-loading">
-                        {/* <h2>Cargando productos...</h2> */}
-                    <CircularProgress/>
+                {loading ? (
+                    <div className="container-loading">
+                        <div className="ItemList-loading">
+                            
+                            <CircularProgress />
                         </div>
-                </div>
-                
-            ) : (
-                
-                <div className="container-itemList">
-                  <ItemList productos={ListProducts} />
-                </div>
-            )}
+                    </div>
+
+                ) : (
 
 
+                    <div className="container-itemList">
+                        <div className="hero"></div>
+                        <ItemList productos={ListProducts} loading={loading} />
+                    </div>
+                )}
+
+            </div>
 
         </>
     )

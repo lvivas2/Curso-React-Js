@@ -42,6 +42,7 @@
         border: 1px solid black;
         background-color: white;
         padding: 5px 50px 5px 50px;
+        transition: 500ms;
         &:hover {
             transition: 500ms;
             box-shadow: 2px 1px #000000;
@@ -56,6 +57,7 @@
     .btn-delateAll{
         border: 1px solid black;
         background-color: white;
+        transition: 500ms;
         &:hover {
             transition: 500ms;
             box-shadow: 2px 1px #000000;

@@ -1,69 +1,87 @@
-import  { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 
 const CartContext = createContext();
 
 
-const CartProvider  =  ({children}) => {
-   
+const CartProvider = ({ children }) => {
 
-    const [cartProducts, setCartproducts] = useState ([])
-    
 
-    
-    
-        
+    const [cartProducts, setCartproducts] = useState(JSON.parse(localStorage.getItem("productos")) || [])
+
+    const [btnAdd, setBtnAdd] = useState(0)
+
+    console.log("btnAdd: ", btnAdd)
+
+
     const addProductToCart = (product) => {
 
-        if( isInCart(product.id) ){
+        if (isInCart(product.id)) {
 
-            const productRepeat = cartProducts.find((p) => p.id === product.id )
+            const productRepeat = cartProducts.find((p) => p.id === product.id)
             const { quantity } = productRepeat
 
             productRepeat.quantity = product.quantity + quantity
 
             const newProductCart = [...cartProducts]
             setCartproducts(newProductCart)
-        }else{
+
+            // localStorage.setItem("Productos", cartProducts)
+
+        } else {
 
             setCartproducts(cartProducts => [...cartProducts, product])
-            
+            localStorage.setItem("productos", JSON.stringify([...cartProducts, product]))
         }
-        
+
 
     }
 
     const isInCart = (id) => {
-        return  cartProducts.some( details => details.id === id )
-        
-        
+        return cartProducts.some(details => details.id === id)
     }
 
 
     const deleteOne = (id) => {
-        setCartproducts(cartProducts.filter(p => p.id !== id))
+        const newData = cartProducts.filter(p => p.id !== id)
+        localStorage.setItem('productos', JSON.stringify(newData));
+        setCartproducts(newData)
     }
 
-    const clear = () => {setCartproducts([])}
-        
+
+    const returnProduct = () => { setBtnAdd(0) }
+
+    const clear = () => { setCartproducts([]) || localStorage.removeItem("productos") }
+
+    const clearAndStock = () => {
+        returnProduct();
+        clear()
+    }
 
 
     const quantity = () => {
         return cartProducts.reduce((amass, product) => amass += product.quantity, 0)
-    } 
+    }
 
     const total = () => {
-        return cartProducts.reduce((amass, product) => amass = amass + (product.price * product.quantity), 0) 
+        return cartProducts.reduce((amass, product) => amass = amass + (product.price * product.quantity), 0)
     }
 
 
-    const  dataCart = {
+
+
+    const dataCart = {
         cartProducts,
         addProductToCart,
         deleteOne,
         clear,
         quantity,
-        total
+        total,
+        returnProduct,
+        btnAdd,
+        setBtnAdd,
+        clearAndStock
+
     }
 
 
@@ -76,9 +94,9 @@ const CartProvider  =  ({children}) => {
         </CartContext.Provider>
 
     )
-    
-    
-} 
 
-export {CartProvider}
+
+}
+
+export { CartProvider }
 export default CartContext
