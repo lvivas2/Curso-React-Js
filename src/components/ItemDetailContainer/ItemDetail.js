@@ -16,26 +16,19 @@ const ItemDetail = ({ details }) => {
 
     const [loading, setLoading] = useState(true)
     const [count, setCount] = useState(0)
-
-    console.log("producto almacenado en el carrito: ", count)
-
     const { addProductToCart } = useContext(CartContext)
 
 
     const { titel, waistS, waistM, waistXL, price, stock, image, imageTow, imageThree, id, category } = details
 
 
-    console.log("imagen: ", image)
+  
     const onAdd = (add) => {
         setCount(add)
         addProductToCart({ ...details, quantity: add })
 
     }
     
-
-    const cartUpdated = (() => {
-        console.log("carrito actualizado: ", count)
-    })
 
 
     setTimeout(()=>{
@@ -108,7 +101,7 @@ const ItemDetail = ({ details }) => {
 
 
                                 <div className="button-ToCart">
-                                    <Link to={"/Cart"}> <button onClick={cartUpdated} className="button-addCart" >Finalizar compra</button> </Link>
+                                    <Link to={"/Cart"}> <button  className="button-addCart" >Finalizar compra</button> </Link>
                                 </div>
                         }
 

@@ -6,17 +6,10 @@ const Count = ({stock, countQuantity}) => {
 
     const handleChange = (e) => { }
 const [countAdd, setConuntAdd] = useState(1);
-  
-
-
-console.log("stockCount: ", stock, countQuantity)
    
-
     const CountAddProduct = () => {
         if (countAdd < stock) {
             setConuntAdd(countAdd + 1)
-        }else{
-            console.log("Ya no se pueden agregar productos")
         }
 
     }
@@ -24,13 +17,11 @@ console.log("stockCount: ", stock, countQuantity)
     const CountRemoveProduct = () => {
         if (countAdd > 1) {
             setConuntAdd(countAdd - 1)
-        }else{
-            console.log("¿Desea eliminar el producto del carrito?")
         }
     }
 
     const addCount = () =>{
-        console.log("hola")
+        
         countQuantity(countAdd)
     }
 

@@ -38,7 +38,7 @@ const Cart = (() => {
         }
     )
 
-    console.log("buy: ", buy)
+    
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -57,7 +57,6 @@ const Cart = (() => {
     const pushOrder = async (prevOrder) => {
         const orderFirebase = collection(db, "Ordenes")
         const order = await addDoc(orderFirebase, prevOrder)
-        console.log("Orden", order.id)
         setBuyOrder(order.id)
     }
 
@@ -71,10 +70,8 @@ const Cart = (() => {
     }
 
 
-    const navigate = useNavigate()
 
-
-
+    localStorage.setItem("Ordenes", JSON.stringify(boyOrder))
 
 
     return (
@@ -158,13 +155,13 @@ const Cart = (() => {
                 {boyOrder ? (
                     <>
                         <div className="cart-submit">
-                            <h3>Orden generada correctamente</h3>
-                            <h3>Su número de orden es {boyOrder}</h3>
-                            <button onClick={() => navigate("/")}>Aceptar</button>
+                          <u><h2>Orden generada con exito</h2></u> 
+                            <h3>Su número de orden es: {boyOrder}</h3>
+                           <Link to="/"> <button onClick={() =>  clear() }>Aceptar</button></Link>
                         </div>
                     </>
                 ) : (
-                    <div className="container-modal-form">
+                   
                         <Form className="container-form" onSubmit={handleSubmit}>
                             <FormGroup>
                                 <Label for="exampleText">Nombre</Label>
@@ -185,20 +182,10 @@ const Cart = (() => {
                                 <Input type="textarea" name="comment" onChange={handleChange} value={formData.comment} />
                             </FormGroup>
 
-
-
-
-
-                            {/* <FormGroup check>
-                            <Label check>
-                                <Input type="checkbox" />{' '}
-                                Check me out
-                            </Label>
-                        </FormGroup> */}
-                            <Button>Submit</Button>
+                            <Button className="btn-submit-cart">Submit</Button>
                         </Form>
 
-                    </div>
+                    
                 )}
 
 

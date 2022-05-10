@@ -17,6 +17,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Divider from '@mui/material/Divider';
+import CollapseNav from "./Collapse/Collapse";
+
 
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
 
@@ -70,6 +72,8 @@ function NavBar() {
     }
 
 
+
+
     return (
 
         <>
@@ -95,28 +99,30 @@ function NavBar() {
 
 
                 <header className={`container-header ${classNav}`}>
-                    <Link to="/" className="nav-brand"><div >
-                        <img className="img-logo" src="/img/GYO.png" alt="..." />
-                    </div>
+                    <Link to="/" className="nav-brand">
+                    <CollapseNav />
+                        <div className="container-img-brand">
+                            <img className="img-logo" src="/img/GYO.png" alt="..." />
+                        </div>
                     </Link>
                     <nav className="container-nav">
                         <ul className="container-ul">
                             <li><Link to="/" aria-current="page">Inicio</Link></li>
                             <li className="sub-menu">
-                            
+
                                 <Dropdown className="dropdown-nav" isOpen={dropdown} toggle={openDropdown} onClick={removeEvent}>
                                     <DropdownToggle caret className="DropdownToggle">
                                         Categorias
                                     </DropdownToggle>
 
                                     <DropdownMenu className="DropdownMenu">
-                                    <Link to="category/boy"><DropdownItem>Niños </DropdownItem></Link>
-                                    <Link to="category/women"><DropdownItem>Mujeres</DropdownItem></Link>
-                                    <Link to="category/men"><DropdownItem>Hombres</DropdownItem></Link>
+                                        <Link to="category/boy"><DropdownItem>Niños </DropdownItem></Link>
+                                        <Link to="category/women"><DropdownItem>Mujeres</DropdownItem></Link>
+                                        <Link to="category/men"><DropdownItem>Hombres</DropdownItem></Link>
                                     </DropdownMenu>
 
                                 </Dropdown>
-                            
+
                             </li>
                             <li><a href="#events-section">Eventos</a></li>
                             <li><a href="#gallery-section">Nosotros</a></li>
@@ -129,7 +135,10 @@ function NavBar() {
                     </nav>
 
 
+
                 </header>
+
+
             </div>
             {/* <div className="paddinh-nav-page"></div> */}
 

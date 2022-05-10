@@ -9,7 +9,7 @@
 @import "../components/ItemListContainer/ItemList/ItemList.scss";
 @import "../components/ItemListContainer/Count/Count.scss";
 @import "../pages/Page404/_Page404.scss";
-
+@import "../components/NavBar/Collapse/Collapse";
 
 body {
     min-height: 100%;
@@ -20,6 +20,7 @@ body {
 
 /* Works on Firefox */
 * {
+    text-decoration: none !important;
     margin: 0;
     padding: 0;
     box-sizing: border-box;

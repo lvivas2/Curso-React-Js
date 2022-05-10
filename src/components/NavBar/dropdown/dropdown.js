@@ -24,19 +24,8 @@ export default function SwipeableTemporaryDrawer({children, menuOne, menuTwe}) {
             return;
         }
 
-        setState({ ...state, [anchor]: open });
-
-        console.log("state", state)
-
-        
+        setState({ ...state, [anchor]: open });       
     };
-
-    console.log("menuOne", menuOne)
-    
-
-    // console.log("state", state)
-    
-  
 
     return (
 

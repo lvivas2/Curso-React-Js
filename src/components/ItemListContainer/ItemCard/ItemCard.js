@@ -19,39 +19,10 @@ const ItemCard = ({ data }) => {
         setLoadingCard(false)
     }, 1000)
 
-    console.log("btnAddCard Stock: ", btnAddCard)
-    // const Same = () =>{
-    //     if (cartProducts.)
-    // }
     const addToCart = (e) => {
         e.stopPropagation()
         addProductToCart({ ...data, quantity: 1 })
     }
-
-
-
-    const same = cartProducts.map((cartProduct) => {
-
-        const delateStock = () => {
-            console.log("cartProduct: ", cartProduct.id, cartProduct.stock)
-
-        }
-
-        delateStock()
-
-    })
-
-
-    const addCardCart = () => {
-        if (btnAddCard >= 1) {
-            console.log("Si es mayor")
-            setBtnAdd(btnAddCard)
-        }
-    }
-
-
-
-
 
 
     const navigate = useNavigate()

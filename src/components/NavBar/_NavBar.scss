@@ -91,15 +91,29 @@
         justify-content: space-between;
         transition: 700ms;
 
+      
+
         .nav-brand {
             width: 30%;
             margin-top: 10px;
+            @media screen and (max-width: 995px) {
+                width: 100%;
+            }
             a {
                 text-decoration: none;
                 color: gray;
                 &:hover {
                     color: rgb(79, 79, 79);
                 }
+            }
+        }
+
+
+        .container-img-brand{
+
+            @media screen and (max-width: 995px) {
+                // margin-left: 15px;
+                display: none;
             }
         }
 
@@ -110,6 +124,10 @@
             justify-content: center;
             margin-top: 10px;
             justify-items: center;
+            @media screen and (max-width: 995px) {
+                // margin-left: 15px;
+                display: none;
+            }
 
             .container-ul {
                 list-style: none;
@@ -154,7 +172,8 @@
                         }
 
                         .DropdownMenu {
-                            border: none;
+                            // border: none;
+                            
                         }
                     }
                 }

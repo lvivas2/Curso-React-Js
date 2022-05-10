@@ -131,20 +131,38 @@
     }
 }
 
-.container-modal{
-//    padding: 50px;
+.cart-submit {
+    
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        font-size: 25px;
+    }
 
-.cart-submit{
-    background-color: aquamarine;
-}
+    h3 {
+        font-size: 23px;
+    }
 
-
-    .container-modal-form{
-       
-
-        .container-form{
-            background: aqua;
-        padding: 50px;
+    button {
+        border: 1px solid black;
+        background: white;
+        padding: 0px 10px 0px 10px;
+        transition: 500ms;
+        
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            transition: 500ms;
+            box-shadow: 2px 1px black;
         }
     }
+}
+
+.container-form {
+    background: rgba(11, 13, 35, 0.556);
+    padding: 5px 60px 5px 60px;
+}
+
+.btn-submit-cart {
 }

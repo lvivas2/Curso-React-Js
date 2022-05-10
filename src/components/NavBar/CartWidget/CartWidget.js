@@ -1,20 +1,15 @@
 import React, { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 
-import Count from "../../ItemListContainer/Count/Count";
 
 // MUI
-
 
 import MenuItem from '@mui/material/MenuItem';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-
-
 // New Cart
-
 
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
@@ -26,7 +21,7 @@ import CartContext from "../../../Contex/CartContex";
 
 export default function SwipeableTemporaryDrawer() {
 
-    const { quantity, cartProducts, deleteOne, clear, returnProduct, clearAndStock} = useContext(CartContext)
+    const { quantity, cartProducts, deleteOne, clear, returnProduct, clearAndStock } = useContext(CartContext)
 
 
     const [state, setState] = useState(false);
@@ -43,16 +38,16 @@ export default function SwipeableTemporaryDrawer() {
         setState({ ...state, [anchor]: open });
     };
 
-    
+
     const modalOff = () => {
         setState(false)
     }
 
-   
+
     return (
         <>
 
-            
+
             <div>
                 {['right'].map((anchor) => (
 
@@ -64,7 +59,7 @@ export default function SwipeableTemporaryDrawer() {
                             onClose={toggleDrawer(anchor, false)}
                             onOpen={toggleDrawer(anchor, true)}
                         >
-                            
+
 
                             <p className="cart-titel-card">Carrito de compras</p>
                             <Divider />
@@ -85,7 +80,6 @@ export default function SwipeableTemporaryDrawer() {
                                                 <span>$ {price} </span>
                                             </div>
                                             <Divider />
-                                            <Count stock={stock} countQuantity={quantity}/>
                                             <div className="cart-modal-action">
                                                 <DeleteIcon onClick={() => deleteOne(id)} />
                                             </div>
@@ -95,7 +89,7 @@ export default function SwipeableTemporaryDrawer() {
 
                                 )
                             })}
-                            
+
                             <Divider />
                             {
                                 cartProducts.length >= 1 ? (

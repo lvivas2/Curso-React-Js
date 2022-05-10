@@ -11,9 +11,6 @@ const CartProvider = ({ children }) => {
 
     const [btnAdd, setBtnAdd] = useState(0)
 
-    console.log("btnAdd: ", btnAdd)
-
-
     const addProductToCart = (product) => {
 
         if (isInCart(product.id)) {
